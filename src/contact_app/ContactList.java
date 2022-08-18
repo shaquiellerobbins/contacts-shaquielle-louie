@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactList {
+
     private ArrayList<ContactItem> contactItems;
 //    private GroceryItem [] groceryItems;
 
@@ -52,10 +53,10 @@ public class ContactList {
         return index;
     }
 
-    public void setItemQuantity(String itemName, int quantity) {
+    public void setnewNumber(String itemName, int quantity) {
         int index = getIndexOfItemByName(itemName);
 
-        // 2. remove the item in the grocery list at that index
+        // 2. remove a contact in the contact list
         if(index > -1) {
             ContactItem item = contactItems.get(index);
             item.setQuantity(quantity);
@@ -65,7 +66,7 @@ public class ContactList {
     public ContactItem getItemByName(String itemName) {
         int index = getIndexOfItemByName(itemName);
 
-        // 2. remove the item in the grocery list at that index
+        // 2. remove the item in the contact list at that index
         if(index > -1) {
             return contactItems.get(index);
         }
