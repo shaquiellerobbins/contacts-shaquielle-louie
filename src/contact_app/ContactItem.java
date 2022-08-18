@@ -2,11 +2,11 @@ package contact_app;
 
 public class ContactItem {
     private String name;
-    private int quantity;
+    private int phoneNumber;
 
-    public ContactItem(String name, int quantity) {
+    public ContactItem(String name, int phoneNumber) {
         this.name = name;
-        this.quantity = quantity;
+        this.phoneNumber = phoneNumber;
     }
 
     public static ContactItem createFromString(String itemString) {
@@ -16,7 +16,7 @@ public class ContactItem {
 
     @Override
     public String toString() {
-        return name + " : " + quantity;
+        return name + " : " + phoneNumber;
     }
 
     public String getName() {
@@ -27,11 +27,11 @@ public class ContactItem {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getphoneNumber() {
+        return phoneNumber;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
