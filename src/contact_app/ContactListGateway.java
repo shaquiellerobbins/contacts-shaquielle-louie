@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
+import java.lang.String;
 
 public class ContactListGateway {
 
@@ -20,16 +22,16 @@ public class ContactListGateway {
         }
 
         // 2. make a temporary list of strings that are the grocery items and write those to the file
-        List<String> itemStrings = contactList.toStringList();
+        List<String> contactString = Collections.singletonList(contactList.toStringList());
 
         // 3. use Files.write to send the data to the file
-        writeItemStringsToFilePath(filePath, itemStrings);
+        writeContactStringsToFilePath(filePath, contactString);
     }
 
 
-    private static void writeItemStringsToFilePath(Path filePath, List<String> itemStrings) {
+    private static void writeContactStringsToFilePath(Path filePath, List<String> contactString) {
         try {
-            Files.write(filePath, itemStrings);
+            Files.write(filePath, contactString);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -46,12 +48,12 @@ public class ContactListGateway {
         }
 
         // 2. read item strings from file
-        List<String> itemStrings = readItemStringsFromFilePath(filePath);
+        List<String> contactStrings = readItemStringsFromFilePath(filePath);
 
         // 3. make items from the items strings and put them in the groceryList
-        for(String itemString : itemStrings) {
+        for(String itemString : contactStrings) {
             ContactItem item = ContactItem.createFromString(itemString);
-            list.addContactItem(item);
+            list.addContact(item);
         }
         return list;
     }
